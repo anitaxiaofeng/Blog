@@ -28,12 +28,12 @@ public class BlogServiceImpl {
         return blogRepository.findAll();
     }
 
-    public List<Blog> selectBlogById(Integer blogid){
-        return blogRepository.findBlogsByBlogid(blogid);
+    public Blog selectBlogById(Integer blogid){
+        return blogRepository.findBlogByBlogid(blogid);
     }
 
     public void deleteBloyById(Integer blogid){
-        blogRepository.deleteBlogsByBlogid(blogid);
+        blogRepository.deleteBlogByBlogid(blogid);
     }
 
 

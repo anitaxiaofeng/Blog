@@ -14,7 +14,7 @@ public interface BlogRepository extends JpaRepository<Blog,Integer> {
 
     List<Blog> findAll();
 
-    List<Blog> findBlogsByBlogid(Integer blogid);
+     Blog findBlogByBlogid(Integer blogid);
 
-    void deleteBlogsByBlogid(Integer blogid);
+    void deleteBlogByBlogid(Integer blogid);
 }
