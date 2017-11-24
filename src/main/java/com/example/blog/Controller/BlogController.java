@@ -25,6 +25,11 @@ public class BlogController {
     @Autowired
     private BlogServiceImpl blogService;
 
+    @GetMapping("/")
+    public String blogindex(){
+        return "blogindex";
+    }
+
     @PostMapping("/writeBlog")
     public String writeBlog(Blog blog){
         Date currentTime = new Date();
@@ -34,6 +39,12 @@ public class BlogController {
         blogService.writeBlog(blog);
         return "success";
     }
+
+    @GetMapping("/writeb")
+    public String editblog(){
+        return "writeblog";
+    }
+
 
     @GetMapping("/bloglist")
     public String selectAllBlog(Model model){
@@ -53,8 +64,18 @@ public class BlogController {
 
     @GetMapping("/deleteBlogById")
     public String deleteBlogById(@RequestParam("blogid") Integer blogid){
-        blogService.deleteBloyById(blogid);
-        return "redirect:adminblog";
+        blogService.deleteBlogById(blogid);
+        return "redirect:/blog/bloglist";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @GetMapping("/gustbook")
+    public String gustbook(){
+        return "gustbook";
     }
 
 }

@@ -32,8 +32,8 @@ public class BlogServiceImpl {
         return blogRepository.findBlogByBlogid(blogid);
     }
 
-    public void deleteBloyById(Integer blogid){
-        blogRepository.deleteBlogByBlogid(blogid);
+    public void deleteBlogById(Integer blogid){
+        blogRepository.deleteById(blogid);
     }
 
 

@@ -1,12 +1,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>index</title>
-    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <title>GustBook</title>
+    <link href="/css/index.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<header>
+<div class="box">z
     <div id="logo"><a href="/"></a></div>
     <nav class="topnav" id="topnav">
         <a href="/blog/bloglist"><span>Home</span><span class="en">主页</span></a>
@@ -16,24 +16,12 @@
         <a href="/blog/gustbook"><span>Gustbook</span><span class="en">留言板</span></a>
         <a href="#" onclick="fun1()"><span>Admin</span><span class="en">管理</span></a>
     </nav>
-</header>
-<div class="box">
-    <div class="banner"></div><br>
-    <h2 class="title">文章列表</h2>
-    <div class="bloglist">
-        <div class="wz">
-        <#list blogs as blog>
-           <h3>${(blog.blogtitle)!''}</h3>
-        <ul>
-            <#if (blog.blogid) != 0>
-            <a title="阅读全文"  href="/blog/selectBlogById?blogid=${(blog.blogid)!''}" class="readmore">阅读全文</a>
-            </#if>
-        </ul>
-        </#list>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div>
+    <br>
+    <br> <br>
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142168"></script>
+    <!-- UY END -->
 </body>
 <script type="text/javascript" src="/js/alert.js" ></script>
 </html>

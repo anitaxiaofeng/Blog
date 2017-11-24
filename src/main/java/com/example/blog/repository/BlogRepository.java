@@ -2,6 +2,10 @@ package com.example.blog.repository;
 
 import com.example.blog.dataobject.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,5 +20,11 @@ public interface BlogRepository extends JpaRepository<Blog,Integer> {
 
      Blog findBlogByBlogid(Integer blogid);
 
-    void deleteBlogByBlogid(Integer blogid);
+
+
+
+    @Transactional
+    @Modifying
+    @Query(value = "delete from blog  where blogid = :id" , nativeQuery = true)
+    void deleteById(@Param("id")Integer blogid);
 }

@@ -3,6 +3,7 @@ package com.example.blog.dataobject;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 public class Blog {
 
     @Id
+    @GeneratedValue
     private Integer blogid;
 
 
