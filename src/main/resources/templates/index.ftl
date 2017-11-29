@@ -9,7 +9,7 @@
 <header>
     <div id="logo"><a href="/"></a></div>
     <nav class="topnav" id="topnav">
-        <a href="/blog/bloglist"><span>Home</span><span class="en">主页</span></a>
+        <a href="/blog/bloglist?username=${username}"><span>Home</span><span class="en">主页</span></a>
         <a href="/blog/writeb"><span>Write Blog</span><span class="en">写博客</span></a>
         <a href="/blog/about"><span>About</span><span class="en">关于我</span></a>
         <a href="/blog/diarylist"><span>Diary</span><span class="en">日记心得</span></a>
@@ -20,6 +20,7 @@
 <div class="box">
     <div class="banner"></div><br>
     <h2 class="title">文章列表</h2>
+    <h3 >你好:${username}</h3>
     <div class="bloglist">
         <div class="wz">
         <#list blogs as blog>

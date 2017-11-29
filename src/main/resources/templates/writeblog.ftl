@@ -13,7 +13,7 @@
 <header>
     <div id="logo"><a href="/"></a></div>
     <nav class="topnav" id="topnav">
-        <a href="/blog/bloglist"><span>Home</span><span class="en">主页</span></a>
+        <a href="/blog/bloglist?username=${Session.username}"><span>Home</span><span class="en">主页</span></a>
         <a href="/blog/about"><span>About</span><span class="en">关于我</span></a>
         <a href="/blog/diarylist"><span>Diary</span><span class="en">日记心得</span></a>
         <a href="/blog/gustbook"><span>Gustbook</span><span class="en">留言板</span></a>
@@ -31,7 +31,8 @@
                 </header>
                 <div class="blogtitle">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    标题 ：<input type="text" name="blogtitle" style="width: 400px;height:25px;"/>
+                    标题 ：<input type="text" name="blogtitle" style="width: 400px;height:25px;"/><br>
+                    姓名：<input type="text" name="username" readonly="readonly" value=${Session.username}>
                 </div>
                 <br />
                 <br />

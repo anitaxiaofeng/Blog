@@ -8,26 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @Author: Anita
- * @Date: Created in 20:53 2017/11/21
+ * @Author Anita
+ * @Date 2017/11/29 15:33
  */
-@Entity
 @Data
-@Table(name = "blog")
-public class Blog {
+@Entity
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue
-    private Integer blogid;
+    private Integer userid;
 
     private String username;
 
+    private String password;
 
-    private String blogtitle;
-
-    private String article;
-
-    private String time;
-
-
+    private String token;
 }

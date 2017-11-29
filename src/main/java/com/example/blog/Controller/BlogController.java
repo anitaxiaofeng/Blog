@@ -2,6 +2,7 @@ package com.example.blog.Controller;
 
 
 import com.example.blog.dataobject.Blog;
+import com.example.blog.repository.BlogRepository;
 import com.example.blog.service.BlogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,6 +26,8 @@ public class BlogController {
 
     @Autowired
     private BlogServiceImpl blogService;
+    @Autowired
+    private BlogRepository blogRepository;
 
     @GetMapping("/")
     public String blogindex(){
@@ -31,25 +35,27 @@ public class BlogController {
     }
 
     @PostMapping("/writeBlog")
-    public String writeBlog(Blog blog){
+    public String writeBlog(Blog blog,HttpSession session){
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String dataString = formatter.format(currentTime);
         blog.setTime(dataString);
         blogService.writeBlog(blog);
+        session.setAttribute("username",blog.getUsername());
         return "success";
     }
 
     @GetMapping("/writeb")
-    public String editblog(){
+    public String editblog(Model model){
         return "writeblog";
     }
 
 
     @GetMapping("/bloglist")
-    public String selectAllBlog(Model model){
+    public String selectAllBlog(@RequestParam("username")String username, Model model){
         List<Blog> blogs = new ArrayList<>();
-        blogs = blogService.selectAllBlog();
+        blogs = blogRepository.findBlogByUsername(username);
+        model.addAttribute("username",username);
         model.addAttribute("blogs",blogs);
         return "index";
     }

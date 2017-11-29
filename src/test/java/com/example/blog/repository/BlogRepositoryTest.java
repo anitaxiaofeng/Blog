@@ -30,6 +30,7 @@ public class BlogRepositoryTest {
         blog.setBlogid(123);
         blog.setArticle("第一篇博客");
         blog.setBlogtitle("博客");
+        blog.setUsername("婉儿");
         LocalDateTime localDateTime = LocalDateTime.now();
         blog.setTime(localDateTime.toString());
         Blog result = blogRepository.save(blog);
